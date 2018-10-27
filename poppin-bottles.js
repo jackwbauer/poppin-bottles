@@ -9,37 +9,35 @@ function poppinBottles(investment) {
   var fulls = total;
   var empties = 0;
   var caps = 0;
-  var totalCaps = 0;
-  var totalEmpties = 0;
+  var earnedFromCaps = 0;
+  var earnedFromBottles = 0;
 
   while(fulls > 0) {
     empties++;
-    totalEmpties++;
     caps++;
-    totalCaps++;
     fulls--;
     while(empties > 1) {
       empties -= 2;
       fulls++;
       total++;
+      earnedFromBottles++;
       while(caps > 3) {
         caps -= 4;
         fulls++;
         total++;
+        earnedFromCaps++;
       }
     }
   }
-  totalEmpties += empties;
-  totalCaps += caps;
 
   result['Total Bottles'] = total;
   result['Remaining Bottles'] = empties;
   result['Remaining Caps'] = caps;
   result['Total Earned'] = {
-    'Bottles' : totalEmpties,
-    'Caps' : totalCaps
+    'Bottles' : earnedFromBottles,
+    'Caps' : earnedFromCaps
   };
-  // console.log(result);
+  console.log(result);
   return result;
 }
 
