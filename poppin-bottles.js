@@ -5,7 +5,7 @@ function poppinBottles(investment) {
   //initial purchase
   var result = {};
   var total = Math.floor(investment / 2);
-  console.log('initial total:', total);
+  // console.log('initial total:', total);
   var fulls = total;
   var empties = 0;
   var caps = 0;
@@ -29,18 +29,17 @@ function poppinBottles(investment) {
       }
     }
   }
+  totalEmpties += empties;
+  totalCaps += caps;
 
   result['Total Bottles'] = total;
   result['Remaining Bottles'] = empties;
   result['Remaining Caps'] = caps;
   result['Total Earned'] = {
-    'Total Empties' : totalEmpties,
-    'Total Caps' : totalCaps
+    'Bottles' : totalEmpties,
+    'Caps' : totalCaps
   };
-
-  console.log('total: ', total);
-  console.log('empties: ', empties);
-  console.log('caps: ', caps);
+  // console.log(result);
   return result;
 }
 
